@@ -62,8 +62,6 @@ public class AesGcmAttributeConverter implements AttributeConverter<String, Stri
     @PostConstruct
     public void getEncryptionKey() {
         try {
-            System.out.println(encryptionKey);
-//            String encryptionKey = objectMapper.readTree(secret).get("ATSEncryptionKey").asText();
             cipher = Cipher.getInstance("AES/GCM/NoPadding");
             secretKey = new SecretKeySpec(hexToBytes(encryptionKey), "AES");
         } catch (Exception e) {
